@@ -6,53 +6,41 @@ public class TestClass {
 
 
     public static void main(String[] args) {
+        System.out.println("Start program");
+        for (int i=0; i<10; i++){
+            System.out.println(i*10);
+            System.out.println();
+        }
+        for (int i=10; i>0; i--){
+            System.out.println(i);
+        }
+        int[] array= new int[10];
+        for(int i=0; i<10; i++){
+            array[i]=i*2;
+        }
+        for(int i=0; i<10; i++){
+            System.out.println("Element with index " +i+ " is: " + array[i]);
+        }
 
-        int i = 10;
-        System.out.println("Start of program");
-        if (i > 10) {
-            System.out.println("i>10");
+        for(int element: array){
+            System.out.println(element);
+
+        }
+        int i=0;
+        boolean bool= true;
+        while(bool){
+            System.out.println("while : " +i);
             i++;
-            System.out.println(i);
+            if(i==5) bool=false;
         }
-        else if (i < 10 && i > 5) {
-            System.out.println("i < 10 && i > 5");
-            i--;
-            System.out.println(i);
-        }
-        else {
-            System.out.println("Nothing");
-        }
-
-        System.out.println("End of program");
         System.out.println();
 
-        i=95;
-        if(i>50){
-            System.out.println("i>50");
-            if (i>90){
-                System.out.println("i>90");
-            }
-            else{
-                System.out.println("i<=90");
-            }
+        i=5;
+        do{
+            System.out.println("Do: "+i);
+            i++;
         }
-        else{
-            System.out.println("i<=50");
-
-
-
-        }
-
-        i=10;
-        switch (i){
-            case 1:
-                System.out.println("The number is 1");
-                break;
-            case 2:
-                System.out.println("The number is 2");
-                break;
-            default:
-                System.out.println("I don't know the number");
-        }
+        while (i<5);
+        System.out.println("End program");
     }
 }
