@@ -15,7 +15,7 @@ public class MainClass {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.manage().window().setSize(new Dimension(900, 500));
+        driver.manage().window().maximize();
 
         driver.get("https://www.google.com/");
         driver.navigate().to("http://seleniumhq.org");
