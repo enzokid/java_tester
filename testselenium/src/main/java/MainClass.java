@@ -8,30 +8,29 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\enzokid\\Documents\\GitHub\\java_tester\\testselenium\\drivers\\geckodriver.exe");
 
         WebDriver driver = new FirefoxDriver();
-
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         driver.manage().window().maximize();
 
-        driver.get("https://www.google.com/");
-        driver.navigate().to("http://seleniumhq.org");
-        driver.navigate().back();
-        driver.navigate().forward();
-        driver.navigate().refresh();
+//      driver.get("http://en.wikipedia.org");
+//        driver.findElement(By.xpath("//input[@id='searchButton']")).click();
 
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());
 
-        driver.get("http://en.wikipedia.org");
-        WebElement link = driver.findElement(By.linkText("Log in"));
-        WebElement link2 = driver.findElement(By.partialLinkText("Donate"));
-        WebElement link3 = driver.findElement(By.name("search"));
+        driver.get("http://github.com");
+        WebElement button = driver.findElement(By.xpath("//form[@class='mx-auto mx-md-0 col-5-max js-signup-form position-relative z-2']//button"));
+        if(button.getText().equals("Sign up for GitHub")) {
+            System.out.println("Success!!");
+        }
+        else System.out.println("Fail!");
 
-        driver.quit();
+//        button.submit();
+
+        driver.findElement(By.xpath("//a[starts-with(text(),'Sign in')]")).click();
+
+//      driver.quit();
 
     }
 
