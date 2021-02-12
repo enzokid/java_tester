@@ -28,7 +28,10 @@ public class MainClass {
 
 //        button.submit();
 
-        driver.findElement(By.xpath("//a[starts-with(text(),'Sign in')]")).click();
+        driver.findElement(By.xpath("//a[@href='/login']")).click();
+
+        driver.get("http://en-gb.facebook.com");
+        driver.findElement(By.xpath("//label[@id='loginbutton']/input")).submit();
 
 //      driver.quit();
 
