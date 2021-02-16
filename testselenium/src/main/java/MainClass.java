@@ -19,19 +19,24 @@ public class MainClass {
 //        driver.findElement(By.xpath("//input[@id='searchButton']")).click();
 
 
-        driver.get("http://github.com");
-        WebElement button = driver.findElement(By.xpath("//form[@class='mx-auto mx-md-0 col-5-max js-signup-form position-relative z-2']//button"));
-        if(button.getText().equals("Sign up for GitHub")) {
-            System.out.println("Success!!");
-        }
-        else System.out.println("Fail!");
+//        driver.get("http://github.com");
+//        WebElement button = driver.findElement(By.xpath("//form[@class='mx-auto mx-md-0 col-5-max js-signup-form position-relative z-2']//button"));
+//        if(button.getText().equals("Sign up for GitHub")) {
+//            System.out.println("Success!!");
+//        }
+//        else System.out.println("Fail!");
 
 //        button.submit();
 
-        driver.findElement(By.xpath("//a[@href='/login']")).click();
+//        driver.findElement(By.xpath("//a[@href='/login']")).click();
 
         driver.get("http://en-gb.facebook.com");
-        driver.findElement(By.xpath("//label[@id='loginbutton']/input")).submit();
+
+        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("testmail");
+        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("testpass");
+        driver.findElement(By.xpath("//button[@id=\"u_0_j_VD\"]")).click();
+
+        driver.findElement(By.xpath("//button[@id=\"u_0_d_NV\"]")).submit();
 
 //      driver.quit();
 
