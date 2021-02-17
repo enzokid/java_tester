@@ -15,16 +15,21 @@ public class MainClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("http://en.wikipedia.org");
-        WebElement link = driver.findElement(By.xpath("//li[@id='n-aboutsite']/a"));
+        driver.get("http://en.wikipedia.org");WebElement link = driver.findElement(By.xpath("//li[@id='n-aboutsite']/a"));
         System.out.println(link.getText());
         link.click();
 
 
-        
+
+        driver.get("http://en-gb.facebook.com");
+
+        driver.findElement(By.xpath("//div[@class=\"_9o-r\"]/button[2]")).click();
 
 
-//      driver.quit();
+        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("overstill77@gmail.com");
+        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("commandoSS77");
+        driver.findElement(By.xpath("//div[@class=\"_6ltg\"]/button[1]")).submit();
+
 
     }
 
