@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MainClass {
@@ -15,22 +16,23 @@ public class MainClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("http://en.wikipedia.org");WebElement link = driver.findElement(By.xpath("//li[@id='n-aboutsite']/a"));
-        System.out.println(link.getText());
-        link.click();
+        driver.get("https://onoff.ee/televizori-i-domkinoteatr/televizori/#&price=0-6500&onpage=88&list=1");
+
+        List <WebElement> checkboxes;
+        checkboxes = driver.findElements(By.xpath("/html/body/div[8]/div/div[1]/nav[2]/form/ul[2]/li[1]/ul//div[@field=\"Производитель\"]"));
+        System.out.println(checkboxes.size());
+
+        //if(checkboxes.size()==7)
+        //    System.out.println("It's OK!");
+        //else System.out.println("Fail!");
+
+        for(WebElement checkbox : checkboxes) {
+            checkbox.click();
+        }
 
 
 
-        driver.get("http://en-gb.facebook.com");
-
-        driver.findElement(By.xpath("//div[@class=\"_9o-r\"]/button[2]")).click();
-
-
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("overstill77@gmail.com");
-        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("commandoSS77");
-        driver.findElement(By.xpath("//div[@class=\"_6ltg\"]/button[1]")).submit();
-
-
+//      driver.quit();
     }
-
 }
+
