@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
 
+    static WebDriver driver;
+
     public static void main(String[] args) {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\enzokid\\Documents\\GitHub\\java_tester\\testselenium\\drivers\\geckodriver.exe");
 
@@ -16,19 +18,18 @@ public class MainClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("https://onoff.ee/televizori-i-domkinoteatr/televizori/#&price=0-6500&onpage=88&list=1");
+        driver.get("https://www.w3schools.com/html/html_tables.asp");
 
-        List <WebElement> checkboxes;
-        checkboxes = driver.findElements(By.xpath("/html/body/div[8]/div/div[1]/nav[2]/form/ul[2]/li[1]/ul//div[@field=\"Производитель\"]"));
-        System.out.println(checkboxes.size());
+        WebElement tableElement = driver.findElement(By.xpath("//table[@id=\"customers\"]"));
 
-        //if(checkboxes.size()==7)
-        //    System.out.println("It's OK!");
-        //else System.out.println("Fail!");
+        Table table = new Table(tableElement, driver);                          // конструктор (создаём таблицу)
+        System.out.println("Rows number is "+ table.getRows().size());
+        System.out.println(table.getValueFromCell(2, 3));
+        System.out.println(table.getValueFromCell(4, 1));
+        System.out.println(table.getValueFromCell(4, "Company"));
+        System.out.println(table.getValueFromCell(1, "Country"));
+        System.out.println(table.getValueFromCell(2, "Contact"));
 
-        for(WebElement checkbox : checkboxes) {
-            checkbox.click();
-        }
 
 
 
